@@ -147,6 +147,7 @@ function dealImage(path, obj, callback){
   //生成canvas
   var canvas = document.createElement('canvas');
   var ctx = canvas.getContext('2d');
+
   // 创建属性节点
   var anw = document.createAttribute("width");
   anw.nodeValue = w;
@@ -154,6 +155,8 @@ function dealImage(path, obj, callback){
   anh.nodeValue = h;
   canvas.setAttributeNode(anw);
   canvas.setAttributeNode(anh); 
+  ctx.fillStyle = "#fff";  //给png图片 在canvas绘制前填充白色背景
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(that, 0, 0, w, h);
   // 图像质量
   if(obj.quality && obj.quality <= 1 && obj.quality > 0){
