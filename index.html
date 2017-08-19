@@ -60,7 +60,7 @@ function setImagePreviews(dval, dimg) {
             $('#' + dimg).attr('src', '');
             return false;
         }else if (url != '' || url != null) {
-            dealImage(url,{'width' : 400},function(base){
+            dealImage(url,{'width' : 600},function(base){
                 $('#' + dval).text('重新上传');
                 $('#' + dimg).attr('src', base);
                 // console.log("压缩后：" + base.length / 1024 + " " + base);　
@@ -114,7 +114,7 @@ function checkPhoto(str){
      }
      if( type!="JPEG"   &&   type!="PNG"   &&   type!="JPG"   &&   type!="GIF"){
        return false;
-    } 
+    }
 }
 //data 图片数据 spec 最大数量 1 2 3 4 5
 function imgSize(data,spec){
@@ -124,7 +124,7 @@ function imgSize(data,spec){
 }
 /**
  * 图片压缩，默认同比例压缩
- * @param {Object} path 
+ * @param {Object} path
  *   pc端传入的路径可以为相对路径，但是在移动端上必须传入的路径是照相图片储存的绝对路径
  * @param {Object} obj
  *   obj 对象 有 width， height， quality(0-1)
@@ -154,7 +154,7 @@ function dealImage(path, obj, callback){
   var anh = document.createAttribute("height");
   anh.nodeValue = h;
   canvas.setAttributeNode(anw);
-  canvas.setAttributeNode(anh); 
+  canvas.setAttributeNode(anh);
   ctx.fillStyle = "#fff";  //给png图片 在canvas绘制前填充白色背景
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(that, 0, 0, w, h);
